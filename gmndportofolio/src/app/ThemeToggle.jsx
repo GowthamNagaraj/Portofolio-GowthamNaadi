@@ -11,7 +11,7 @@ export default function ThemeToggle(){
     <Button
         variant="outline"
         size="icon"
-        className="rounded-full"
+        className="rounded-full md:w-8 md:h-8 w-6 h-6"
         onClick={()=> setTheme(theme === "light" ? "dark" : "light")}
     >
         <HiSun className="absolute h-10 w-10 text-yellow-500 rotate-0 scale-100 dark:-rotate-90 dark:scale-0 "/>

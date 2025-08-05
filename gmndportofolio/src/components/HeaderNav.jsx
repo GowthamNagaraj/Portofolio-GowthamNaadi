@@ -38,12 +38,12 @@ const HeaderNav = () => {
             </nav>
 
             {/* Mobile Navigation */}
-            <nav className='md:hidden flex items-center justify-around'>
-                <h1 className='text-lg font-bold'>GowthamNagaraj</h1>
+            <nav className='md:hidden flex items-center justify-between'>
+                <h1 className='text-xs font-bold'>GowthamNagaraj</h1>
                 <div className="flex items-center space-x-4">
                     <ThemeToggle />
                     <button onClick={toggleMenu} className="text-white focus:outline-none">
-                        {menuOpen ? <HiX size={24} /> : <HiOutlineMenu size={24} />}
+                        {menuOpen ? <HiX size={20} /> : <HiOutlineMenu size={20} />}
                     </button>
                 </div>
             </nav>
@@ -52,10 +52,10 @@ const HeaderNav = () => {
             <div 
                 className={`md:hidden absolute top-full left-0 w-full bg-slate-900 dark:bg-slate-800 transition-all duration-300 ease-in-out overflow-hidden ${menuOpen ? 'max-h-screen' : 'max-h-0'}`}
             >
-                <ul className='flex flex-col items-center justify-center p-4 space-y-4'>
+                <ul className='flex flex-col items-center justify-center space-y-4 p-4'>
                     {navItems.map((item) => (
                         <li key={item.id} onClick={toggleMenu}>
-                            <Link href={item.path} className={`block w-full text-start list-none cursor-pointer hover:text-blue-400 ${pathname === item.path ? 'text-red-500' : ''}`}>
+                            <Link href={item.path} className={`block w-full text-start list-none text-xs cursor-pointer hover:text-blue-400 ${pathname === item.path ? 'text-red-500' : ''}`}>
                                 {item.name}
                             </Link>
                         </li>
