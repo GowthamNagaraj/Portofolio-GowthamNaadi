@@ -1,36 +1,72 @@
 "use client";
-import React, { useState } from 'react';
-import { usePathname } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import ThemeToggle from '@/app/ThemeToggle';
 import { HiOutlineMenu, HiX } from "react-icons/hi";
 
 const navItems = [
-    { id: 1, name: "Home", path: "/" },
-    { id: 2, name: "About", path: "/about" },
-    { id: 3, name: "Services", path: "/services" },
-    { id: 4, name: "Contact", path: "/contact" },
+    { id: 1, name: "Home", path: "#home" },
+    { id: 2, name: "About", path: "#about" },
+    { id: 3, name: "Services", path: "#services" },
+    { id: 4, name: "Contact", path: "#contact" },
 ];
 
 const HeaderNav = () => {
-    const pathname = usePathname();
     const [menuOpen, setMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState("");
+
+    useEffect(() => {
+        const saved = localStorage.getItem('active-section');
+        if (saved) setActiveSection(saved);
+
+        const handleScroll = () => {
+            const scrollPos = window.scrollY;
+            let current = "";
+
+            for (let item of navItems) {
+                const section = document.getElementById(item.path.slice(1));
+                if (section && scrollPos >= section.offsetTop - 100) {
+                    current = item.path;
+                }
+            }
+
+            setActiveSection(current);
+            localStorage.setItem('active-section', current);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        handleScroll(); // run once
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
 
+    const handleLinkClick = (path) => {
+        setActiveSection(path);
+        localStorage.setItem("active-section", path);
+        setMenuOpen(false);
+    };
+
     return (
-        <div className='min-w-full bg-slate-900/100 p-6 px-28 fixed top-0 text-white dark:bg-slate-900/100 dark:text-white'>
+        <div className='min-w-full bg-slate-900/100 p-6 px-28 fixed top-0 text-white dark:bg-slate-900/100 dark:text-white z-50'>
             {/* Desktop Navigation */}
             <nav className='hidden md:flex items-center justify-between'>
                 <h1 className='text-lg font-bold'>GowthamNagaraj</h1>
                 <ul className='flex space-x-6'>
                     {navItems.map((item) => (
                         <li key={item.id}>
-                            <Link href={item.path} className={`list-none cursor-pointer hover:text-blue-400 ${pathname === item.path ? 'text-red-500' : ''}`}>
+                            <a
+                                href={item.path}
+                                className={`cursor-pointer hover:text-blue-400 ${
+                                    activeSection === item.path ? 'text-red-500 font-bold' : ''
+                                }`}
+                                onClick={() => handleLinkClick(item.path)}
+                            >
                                 {item.name}
-                            </Link>
+                            </a>
                         </li>
                     ))}
                 </ul>
@@ -54,10 +90,16 @@ const HeaderNav = () => {
             >
                 <ul className='flex flex-col items-center justify-center space-y-4 p-4'>
                     {navItems.map((item) => (
-                        <li key={item.id} onClick={toggleMenu}>
-                            <Link href={item.path} className={`block w-full text-start list-none text-xs cursor-pointer hover:text-blue-400 ${pathname === item.path ? 'text-red-500' : ''}`}>
+                        <li key={item.id}>
+                            <a
+                                href={item.path}
+                                className={`block w-full text-start text-xs cursor-pointer hover:text-blue-400 ${
+                                    activeSection === item.path ? 'text-red-500 font-bold' : ''
+                                }`}
+                                onClick={() => handleLinkClick(item.path)}
+                            >
                                 {item.name}
-                            </Link>
+                            </a>
                         </li>
                     ))}
                 </ul>

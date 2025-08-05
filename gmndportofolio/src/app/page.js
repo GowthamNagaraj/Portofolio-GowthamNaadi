@@ -1,4 +1,5 @@
 "use client"
+import About from "@/components/About";
 import HeaderNav from "@/components/HeaderNav";
 import Hero from "@/components/Hero";
 import AOS from "aos";
@@ -13,6 +14,7 @@ export default function Home() {
     <div className="min-h-screen max-w-full bg-white dark:bg-black text-black dark:text-white transition-all duration-300">
       <HeaderNav />
       <Hero />
+      <About />
     </div>
   );
 }
