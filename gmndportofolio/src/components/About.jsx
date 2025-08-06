@@ -18,9 +18,6 @@ const About = () => {
                     <h2 className='text-3xl font-semibold text-white text-shadow-lg text-shadow-blue-400'>About me:</h2>
                     <p className='text-gray-400 xl:text-lg lg:text-xs md:text-xs text-xs'>Hi, I’m Gowtham Nagaraj, a passionate Full Stack Developer with hands-on experience in MERN, Java technologies. I specialize in building complete web applications — from frontend design to backend logic and deployment.</p>
                     <p className='text-gray-400 xl:text-lg lg:text-xs md:text-xs text-xs'>I enjoy solving real-world problems with clean, scalable code. I’m constantly learning and exploring new technologies to stay up to date. My goal is to grow as a developer and contribute to impactful products with a great team.</p>
-                    <div className='w-full text-end'>
-                        <h2 className='text-3xl font-semibold text-white text-shadow-lg text-shadow-blue-400'>Thank You.</h2>
-                    </div>
                 </div>
             </div>
         </div>
