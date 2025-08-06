@@ -7,8 +7,9 @@ import { HiOutlineMenu, HiX } from "react-icons/hi";
 const navItems = [
     { id: 1, name: "Home", path: "#home" },
     { id: 2, name: "About", path: "#about" },
-    { id: 3, name: "Services", path: "#services" },
-    { id: 4, name: "Contact", path: "#contact" },
+    { id: 3, name: "Skills", path: "#skills" },
+    { id: 4, name: "Projects", path: "#projects" },
+    { id: 5, name: "Contact", path: "#contact" },
 ];
 
 const HeaderNav = () => {

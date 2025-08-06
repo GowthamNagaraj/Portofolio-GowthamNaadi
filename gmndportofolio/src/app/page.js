@@ -1,5 +1,7 @@
 "use client"
 import About from "@/components/About";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 import HeaderNav from "@/components/HeaderNav";
 import Hero from "@/components/Hero";
 import AOS from "aos";
@@ -15,6 +17,8 @@ export default function Home() {
       <HeaderNav />
       <Hero />
       <About />
+      <Contact />
+      <Footer />
     </div>
   );
 }
