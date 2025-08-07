@@ -41,7 +41,7 @@ const SwiperCubeSlider = () => {
                         delay: 2000, // ⏱️ 2 seconds per slide
                         disableOnInteraction: false,
                     }}
-                    modules={[EffectCube, Pagination]}
+                    modules={[EffectCube, Pagination, Autoplay]}
                     className="mySwiper xl:w-72 md:w-40 w-60 h-52 rounded-lg"
                 >
                     {imagesPaths.map((src, index) => (
