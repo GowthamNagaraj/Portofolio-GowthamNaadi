@@ -8,6 +8,7 @@ import Skills from "@/components/Skills";
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { useEffect } from "react";
+import Projects from "@/components/Projects";
 
 export default function Home() {
  useEffect(() => {
@@ -23,6 +24,7 @@ export default function Home() {
       <Hero />
       <About />
       <Skills />
+      <Projects />
       <Contact />
       <Footer />
     </div>

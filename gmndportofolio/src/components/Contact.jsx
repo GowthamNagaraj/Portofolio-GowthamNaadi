@@ -3,9 +3,7 @@ import React from 'react'
 import { Button } from "@/components/ui/button"
 import {
     Card,
-    CardAction,
     CardContent,
-    CardDescription,
     CardFooter,
     CardHeader,
     CardTitle,
@@ -17,16 +15,16 @@ import { BsSendFill } from "react-icons/bs";
 
 const Contact = () => {
     return (
-        <div className='md:px-28 max-w-full min-h-screen md:p-14 p-7 bg-white dark:bg-black flex items-center justify-center' id='contact'>
+        <div className='md:px-28 max-w-full min-h-screen md:p-14 p-7 bg-white dark:bg-black flex items-center justify-center' id='contact' data-aos="fade-up">
             {/* <div className='bg-blue-500 w-full p-6'> */}
-                <Card className="w-full max-w-sm">
-                    <CardHeader className="text-center">
-                        <CardTitle>Contact Me</CardTitle>
+                <Card className="w-full max-w-sm bg-white dark:bg-black shadow-2xl shadow-blue-300">
+                    <CardHeader className="text-center" data-aos="fade-left">
+                        <CardTitle className="text-3xl font-semibold shadow-2xl shadow-indigo-600">Contact Me</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <form>
                             <div className="flex flex-col gap-6">
-                                <div className="grid gap-2">
+                                <div className="grid gap-2" data-aos="fade-right">
                                     <Label htmlFor="email">Email</Label>
                                     <Input
                                         id="email"
@@ -35,7 +33,7 @@ const Contact = () => {
                                         required
                                     />
                                 </div>
-                                <div className="grid gap-2">
+                                <div className="grid gap-2" data-aos="fade-left">
                                     <div className="flex items-center">
                                         <Label htmlFor="password">Why contact me ?</Label>
                                     </div>
@@ -44,8 +42,8 @@ const Contact = () => {
                             </div>
                         </form>
                     </CardContent>
-                    <CardFooter className="flex-col gap-2">
-                        <Button type="submit" className="w-full">
+                    <CardFooter className="flex-col gap-2" data-aos="fade-down">
+                        <Button type="submit" className="w-full cursor-pointer">
                             Send <BsSendFill />
                         </Button>
                     </CardFooter>
