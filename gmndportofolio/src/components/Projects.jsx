@@ -27,6 +27,15 @@ import e7 from "@/assets/projects/EggsEcom/e7.png";
 import e8 from "@/assets/projects/EggsEcom/e8.png";
 import e9 from "@/assets/projects/EggsEcom/e9.png";
 
+import c1 from "@/assets/projects/Calc/c1.png"
+import c2 from "@/assets/projects/Calc/c2.png"
+
+import t1 from "@/assets/projects/TodoList/t1.png"
+import t2 from "@/assets/projects/TodoList/t2.png"
+import t3 from "@/assets/projects/TodoList/t3.png"
+import t4 from "@/assets/projects/TodoList/t4.png"
+import t5 from "@/assets/projects/TodoList/t5.png"
+
 
 // Shared image array
 const PortofolioImages = [
@@ -49,6 +58,19 @@ const eggsShopEcomImages = [
   { imagePath: e9 },
 ];
 
+const todoListAppImages = [
+  { imagePath: t1 },
+  { imagePath: t2 },
+  { imagePath: t3 },
+  { imagePath: t4 },
+  { imagePath: t5 },
+];
+
+const calcImages = [
+  { imagePath: c1 },
+  { imagePath: c2 },
+];
+
 const projects = [
   {
     id: 1,
@@ -63,6 +85,20 @@ const projects = [
     projectDescription: "Portfolio website.",
     projectLink: "https://portofolio-gowtham-naadi.vercel.app/",
     slidePaths: PortofolioImages,
+  },
+  {
+    id: 3,
+    projectName: "TodoApp",
+    projectDescription: "Task Added",
+    projectLink: "https://gmnd-todo-app.vercel.app/",
+    slidePaths: todoListAppImages,
+  },
+  {
+    id: 4,
+    projectName: "Calculator",
+    projectDescription: "Calc your sums",
+    projectLink: "https://gmnd-calculator.vercel.app/",
+    slidePaths: calcImages,
   },
 ];
 
