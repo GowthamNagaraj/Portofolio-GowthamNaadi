@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { BsSendFill } from "react-icons/bs";
+import { toast } from 'sonner'
 
 const Contact = () => {
     async function handleSubmit(e) {
@@ -37,13 +38,26 @@ const Contact = () => {
             const result = await response.json();
             if (result.success) {
                 console.log(result);
-                alert("✅ Message sent successfully!");
+                // alert("✅ Message sent successfully!");
+                toast("Message sent successfully!", {
+                    style: {
+                        background: "green", color: "white"
+                    }
+                })
                 e.target.reset(); // clear form
             } else {
-                alert("❌ Failed to send message.");
+                toast("Failed Message sent !", {
+                    style: {
+                        background: "red", color: "white"
+                    }
+                })
             }
-        }else{
-            alert("fill inputs")
+        } else {
+            toast("Fill in the field", {
+                style: {
+                    background: "orange", color: "white"
+                }
+            })
         }
     }
 

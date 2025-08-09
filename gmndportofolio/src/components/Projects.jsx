@@ -105,7 +105,7 @@ const projects = [
 const Projects = () => {
   return (
     <div
-      className="md:px-28 max-w-full min-h-screen md:p-14 p-7 bg-[#010c84] dark:bg-sky-950"
+      className="md:px-28 max-w-full min-h-screen md:p-20 p-16 flex flex-col items-center justify-center bg-[#010c84] dark:bg-sky-950"
       id="projects"
       data-aos="fade-up"
     >
@@ -117,11 +117,11 @@ const Projects = () => {
       </h2>
 
       <div
-        className="shadow-2xl mt-16 shadow-sky-400 rounded-2xl bg-transparent border-2 border-blue-400 md:mx-20 md:p-2 grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 justify-items-center gap-6"
+        className="shadow-2xl mt-10 shadow-sky-400 rounded-2xl bg-transparent w-fit border-2 border-blue-400 md:mx-20 md:p-2 grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 justify-items-center gap-6"
         data-aos="fade-down"
       >
         {projects.map((item, i) => (
-          <Card className="w-full max-w-sm" key={i} data-aos="fade-right">
+          <Card className="w-full max-w-sm shadow-lg shadow-sky-300" key={i} data-aos="fade-right">
             <CardHeader>
               <CardTitle className="text-xl">{item.projectName}</CardTitle>
               <CardDescription className="text-xs">
