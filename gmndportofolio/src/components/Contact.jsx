@@ -1,27 +1,38 @@
-"use client"
-import React from 'react'
-import { Button } from "@/components/ui/button"
+"use client";
+
+import React, { useEffect, useRef } from 'react';
+import { Button } from "@/components/ui/button";
 import {
     Card,
     CardContent,
     CardFooter,
     CardHeader,
     CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 import { BsSendFill } from "react-icons/bs";
-import { toast } from 'sonner'
+import { toast } from 'sonner';
 
 const Contact = () => {
+    const successSound = useRef(null);
+    const errorSound = useRef(null);
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            successSound.current = new Audio("/sounds/success.mp3");
+            errorSound.current = new Audio("/sounds/error.mp3");
+        }
+    }, []);
+
     async function handleSubmit(e) {
         e.preventDefault();
         let name = e.target.name.value;
         let email = e.target.email.value;
         let message = e.target.message.value;
 
-        if (name !== "" && email !== "" && message !== "") {
+        if (name && email && message) {
             const response = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
                 headers: {
@@ -35,29 +46,25 @@ const Contact = () => {
                     message,
                 }),
             });
+
             const result = await response.json();
             if (result.success) {
-                console.log(result);
-                // alert("✅ Message sent successfully!");
+                successSound.current?.play();
                 toast("Message sent successfully!", {
-                    style: {
-                        background: "green", color: "white"
-                    }
-                })
-                e.target.reset(); // clear form
+                    style: { background: "green", color: "white" }
+                });
+                e.target.reset();
             } else {
-                toast("Failed Message sent !", {
-                    style: {
-                        background: "red", color: "white"
-                    }
-                })
+                errorSound.current?.play();
+                toast("Failed to send message!", {
+                    style: { background: "red", color: "white" }
+                });
             }
         } else {
-            toast("Fill in the field", {
-                style: {
-                    background: "orange", color: "white"
-                }
-            })
+            errorSound.current?.play();
+            toast("Fill in all fields", {
+                style: { background: "orange", color: "white" }
+            });
         }
     }
 
@@ -73,23 +80,11 @@ const Contact = () => {
                         <div className="flex flex-col gap-6">
                             <div className="grid gap-2" data-aos="fade-right">
                                 <Label htmlFor="name">Name</Label>
-                                <Input
-                                    id="name"
-                                    type="text"
-                                    name="name"
-                                    placeholder="Enter your name"
-                                    required
-                                />
+                                <Input id="name" type="text" name="name" placeholder="Enter your name" required />
                             </div>
                             <div className="grid gap-2" data-aos="fade-right">
                                 <Label htmlFor="email">Email</Label>
-                                <Input
-                                    id="email"
-                                    type="email"
-                                    name="email"
-                                    placeholder="email@gmail.com"
-                                    required
-                                />
+                                <Input id="email" type="email" name="email" placeholder="email@gmail.com" required />
                             </div>
                             <div className="grid gap-2" data-aos="fade-left">
                                 <Label htmlFor="message">Why contact me?</Label>
@@ -107,6 +102,6 @@ const Contact = () => {
             </Card>
         </div>
     );
-}
+};
 
 export default Contact;
