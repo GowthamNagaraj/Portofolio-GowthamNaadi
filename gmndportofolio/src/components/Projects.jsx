@@ -100,6 +100,13 @@ const projects = [
     projectLink: "https://gmnd-calculator.vercel.app/",
     slidePaths: calcImages,
   },
+  {
+    id: 5,
+    projectName: "Weather App",
+    projectDescription: "Weather App using OpenWeather API",
+    projectLink: "https://gmndweatherapp.vercel.app/",
+    slidePaths: calcImages,
+  }
 ];
 
 const Projects = () => {
