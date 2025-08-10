@@ -36,6 +36,10 @@ import t3 from "@/assets/projects/TodoList/t3.png"
 import t4 from "@/assets/projects/TodoList/t4.png"
 import t5 from "@/assets/projects/TodoList/t5.png"
 
+import wa1 from "@/assets/projects/WeatherApp/wa1.png"
+import wa2 from "@/assets/projects/WeatherApp/wa2.png";
+import wa3 from "@/assets/projects/WeatherApp/wa3.png";
+
 
 // Shared image array
 const PortofolioImages = [
@@ -69,6 +73,13 @@ const todoListAppImages = [
 const calcImages = [
   { imagePath: c1 },
   { imagePath: c2 },
+];
+
+
+const weatherImages = [
+  { imagePath: wa1 },
+  { imagePath: wa2 },
+  { imagePath: wa3 },
 ];
 
 const projects = [
@@ -105,7 +116,7 @@ const projects = [
     projectName: "Weather App",
     projectDescription: "Weather App using OpenWeather API",
     projectLink: "https://gmndweatherapp.vercel.app/",
-    slidePaths: calcImages,
+    slidePaths: weatherImages,
   }
 ];
 
