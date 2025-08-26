@@ -5,7 +5,7 @@ const Footer = () => {
     const year = new Date().getFullYear()
   return (
     <div className='md:px-28 max-w-full p-2 bg-gray-200 dark:bg-blue-950 flex items-center justify-center'>
-      <span className='text-xs text-gray-400'>Copy {year}. GowthamNagaraj Portofolio .</span>
+      <span className='text-xs text-gray-400'>Copyright &copy; {year} All rights reserved | GowthamNagaraj Portofolio .</span>
     </div>
   )
 }
